@@ -13,4 +13,7 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>p", "\"+p")
 vim.keymap.set("v", "<leader>p", "\"+p")
 
+-- undo tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
 

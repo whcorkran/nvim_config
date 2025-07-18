@@ -21,21 +21,45 @@ local options = {}
 -- plugins
 local plugins = {  
     {
-        "catppuccin/nvim", name = "catppuccin", priority = 1000
+        "catppuccin/nvim", 
+            name = "catppuccin", 
+            priority = 1000
+    }, 
+    
+    {
+        'nvim-telescope/telescope.nvim', 
+            tag = '0.1.8',
+            dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    
+    {
+        "nvim-treesitter/nvim-treesitter", 
+            branch = 'master', 
+            lazy = false, 
+            build = ":TSUpdate"
+    },
+    
+    {
+        "ThePrimeagen/harpoon", 
+            branch = "harpoon2", 
+            dependencies = { "nvim-lua/plenary.nvim", 
+            "nvim-telescope/telescope.nvim" }
+    },
+    
+    {
+        "tpope/vim-fugitive"
     }, 
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
-         dependencies = { 'nvim-lua/plenary.nvim' }
+        "mbbill/undotree"
     },
     {
-        "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"
-    },
-    {
-    "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" }
-    },
-    {
-    "tpope/vim-fugitive"
-    }
+        "kylechui/nvim-surround", 
+            version = "*", -- latest stable
+            event = "VeryLazy",
+            config = function()
+                require("nvim-surround").setup({})
+            end
+        }
 }
 
 -- BUILD
